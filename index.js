@@ -3,6 +3,7 @@
 const hogan = require('hogan-express-strict');
 const express = require('express');
 const server = express();
+const routes = require('./routes');
 const path = require('path');
 const config = require('./config');
 
@@ -21,24 +22,15 @@ server.engine('html', hogan);
 server.set('views', path.resolve('./views'));
 
 /*
-  This section is what tells our server to do when the browser asks for things
+  Thie is how we tell the server what to do when the browser wants to load
+  page, such as /recipes, or /music
 */
-server.get('/', (request, response) => {
-  response.render('index');
-});
+server.use(routes);
 
-server.get('/recipes/:name?', (request, response) => {
-  const parameters = request.params;
-  if (parameters && parameters.name) {
-    return response.render(`recipes/${parameters.name}`);
-  }
-  response.render('recipes');
-});
-
-server.get('/about', (request, response) => {
-  response.render('about');
-});
-
+/*
+  This tells the server listen for requests from the browser
+*/
 server.listen(config.port);
+
 
 console.log(`Server listening on port ${config.port}`);

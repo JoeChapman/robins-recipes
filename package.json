@@ -1,0 +1,25 @@
+{
+  "name": "robins-recipes-website",
+  "version": "1.0.0",
+  "description": "Robin's website for sharing recipes and ideas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeChapman/robins-recipes.git"
+  },
+  "author": "Robin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoeChapman/robins-recipes/issues"
+  },
+  "homepage": "https://github.com/JoeChapman/robins-recipes#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "hogan-express-strict": "^0.5.4"
+  }
+}

@@ -4,6 +4,7 @@ const hogan = require('hogan-express-strict');
 const express = require('express');
 const server = express();
 const path = require('path');
+const config = require('./config');
 
 /*
   This tells the server where to get the CSS, images and JavaScript from
@@ -38,6 +39,6 @@ server.get('/about', (request, response) => {
   response.render('about');
 });
 
-server.listen('8080');
+server.listen(config.port);
 
-console.log('Server listening on port 8080');
+console.log(`Server listening on port ${config.port}`);

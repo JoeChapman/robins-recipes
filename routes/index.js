@@ -2,7 +2,7 @@
 
 const router = require('express').Router();
 
-router.get('/', (request, response) => {
+router.get('', (request, response) => {
   response.render('index');
 });
 
@@ -18,6 +18,11 @@ router.get('/about', (request, response) => {
 router.get('/music/:name?', (request, response) => {
   const name = request.params && request.params.name;
   return response.render(`music/${name || ''}`);
+});
+
+router.get('/art/:name?', (request, response) => {
+  const name = request.params && request.params.name;
+  return response.render(`art/${name || ''}`);
 });
 
 module.exports = router;
